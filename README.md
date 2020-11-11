@@ -30,3 +30,24 @@ Cloudera Public Cloud CDF Workshop - AWS or Azure
 
 * https://docs.cloudera.com/csa/1.2.0/sql-client/topics/csa-sql-client-config.html
 * https://github.com/cloudera/flink-tutorials/tree/master/flink-sql-tutorial
+
+# Initial Setup
+
+* https://docs.cloudera.com/data-hub/cloud/getting-started-tutorial/topics/dh-tutorial-ssh.html
+
+# HBase Connectivity
+
+* Download Configuration Files
+* SCP Configuration Files
+* Use Configuration Files in NiFi /etc/hadoop/conf.cloudera.core_settings/core-site.xml,/tmp/hbase-site.xml
+
+# Kafka Connectivity
+
+* Get brokers (multiple) from hardware tab of Kafka Data Hub, they use port 9093 and are SSL.
+
+# Security Credentials Location
+
+/var/lib/nifi/cm-auto-host_keystore.jks
+/var/lib/nifi/cm-auto-in_cluster_truststore.jks
+
+

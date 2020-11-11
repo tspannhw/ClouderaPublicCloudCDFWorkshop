@@ -17,6 +17,14 @@ https://github.com/tspannhw/ClouderaStreamingAnalyticsSQLWorkshop
 
 ## Workshop
 
+# General Cloud Activities
+
+* Create Hbase table - See SSH
+* Create Hive table - Apache Hue (From DWH)
+* Create Kudu table - Apache Hue (From DWH)
+* Create schema in Schema Registry(From Kafka DH)
+
+
 # NiFi Focused
 
 * NiFi Ingest Kafka https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-kafka-ingest/topics/cdf-datahub-fm-kafka-ingest-overview.html

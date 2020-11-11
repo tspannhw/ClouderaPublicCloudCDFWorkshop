@@ -3,15 +3,19 @@
 Cloudera Public Cloud CDF Workshop - AWS or Azure
 
 
-# See https://docs.cloudera.com/cdf-datahub/7.2.2/index.html
+# See 
+https://docs.cloudera.com/cdf-datahub/7.2.2/index.html
 
-# See also https://github.com/tspannhw/ClouderaFlowManagementWorkshop
+# See also 
+https://github.com/tspannhw/ClouderaFlowManagementWorkshop
 
-# See also https://github.com/asdaraujo/edge2ai-workshop
+# See also 
+https://github.com/asdaraujo/edge2ai-workshop
 
-# See also https://github.com/tspannhw/ClouderaStreamingAnalyticsSQLWorkshop
+# See also 
+https://github.com/tspannhw/ClouderaStreamingAnalyticsSQLWorkshop
 
-# Workshop
+## Workshop
 
 # NiFi Focused
 

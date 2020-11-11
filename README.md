@@ -45,9 +45,36 @@ Cloudera Public Cloud CDF Workshop - AWS or Azure
 
 * Get brokers (multiple) from hardware tab of Kafka Data Hub, they use port 9093 and are SSL.
 
+# Hive Connectivity
+
+* thrift://HIVEServerNameVeryLong.cloudera.site:9083
+* Download Configuration Files
+* SCP Configuration Files
+* Use Configuration Files in NiFi /tmp/hive-site.xml,/tmp/core-site.xml,/tmp/hdfs-site.xml
+
 # Security Credentials Location
 
-/var/lib/nifi/cm-auto-host_keystore.jks
-/var/lib/nifi/cm-auto-in_cluster_truststore.jks
+* /var/lib/nifi/cm-auto-host_keystore.jks
+
+* /var/lib/nifi/cm-auto-in_cluster_truststore.jks
+
+* the keystore password can be found in this file, on a DH node: /var/lib/cloudera-scm-agent/agent-cert/cm-auto-host_key.pw
+
+* the truststore password can be found by calling this API: https://[your_cm_host]/api/v40/certs/truststorePassword
+
+
+# Example SSH Connection
+
+ssh -i MySSHPemIsAwesome.pem cloudbreak@3.82.183.16
+
+# Example NiFi CDP CDF Azure Application
+
+https://github.com/tspannhw/cdp-datahub-azure-nifikafka
+
+# Resources
+
+* https://community.cloudera.com/t5/Community-Articles/How-to-configure-NiFi-S2S-from-local-machine-to-CDP-Public/ta-p/301235
+* https://github.com/tspannhw/airline-sentiment-streaming
+
 
 

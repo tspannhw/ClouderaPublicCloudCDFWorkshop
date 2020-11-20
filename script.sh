@@ -7,6 +7,9 @@
 # https://github.com/tspannhw/cdp-datahub-azure-nifikafka
 # https://github.com/tspannhw/airline-sentiment-streaming/
 
+# Download Hbase client configs from CM
+# Download Hive client configs from CM
+
 # HBase
 # 7.2.2 - Operational Database: Apache HBase, Phoenix-COD-v3
 

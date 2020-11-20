@@ -2,6 +2,10 @@
 # https://www.datainmotion.dev/2019/10/migrating-apache-flume-flows-to-apache_7.html
 # https://www.datainmotion.dev/2019/10/using-grovepi-with-raspberry-pi-and.html
 
+# referencesw
+# https://github.com/tspannhw/ApacheConAtHome2020
+# https://github.com/tspannhw/cdp-datahub-azure-nifikafka
+# https://github.com/tspannhw/airline-sentiment-streaming/
 
 # HBase
 # 7.2.2 - Operational Database: Apache HBase, Phoenix-COD-v3
@@ -54,6 +58,20 @@ CREATE TABLE IF NOT EXISTS airlinesentimentkudu (tweetid STRING, `timestamp` STR
 annonym STRING, favourites_count STRING, airlinesentiment STRING, airlinepolarity STRING, retweet_count STRING, 
 statuses_count STRING, followers_count STRING, `location` STRING, text STRING, time STRING, airline STRING, 
 PRIMARY KEY (tweetid, `timestamp`)
+)
+PARTITION BY HASH PARTITIONS 4
+STORED AS KUDU
+TBLPROPERTIES ('kudu.num_tablet_replicas' = '1');
+
+CREATE TABLE IF NOT EXISTS airlinesentimentkudu2
+(tweet_id STRING, `unixtime` STRING, friends_count STRING, hashtags STRING, listed_count STRING, 
+source STRING, favourites_count STRING, 
+statuses_count STRING, followers_count STRING, `location` STRING, msg STRING, time STRING, airline STRING, 
+user_name STRING, placename STRING, retweet_count STRING, 
+user_mentions_name STRING, geo STRING, urls STRING, countryCode STRING, user_url STRING,
+place STRING, coordinates STRING, handle STRING, profile_image_url STRING, time_zone STRING,
+ ext_media STRING, user_description STRING,
+PRIMARY KEY (tweet_id, `unixtime`)
 )
 PARTITION BY HASH PARTITIONS 4
 STORED AS KUDU
@@ -128,7 +146,44 @@ group by dayofweek(from_unixtime(CAST(STRLEFT(unixtime,LENGTH(unixtime)-3) as bi
                                  
 select 'Privacy Rule X2YZ applies', count(user_name) from rawpostsunicef group by user_name order by count(user_name) DESC
                                  
- select sentiment, count(sentiment) from rawpostsunicef group by sentiment
+ select sentiment, count(sentiment) from rawpostsunicef group by sentiment;
+ 
+ 
+ 
+echo ""
+echo ""
+echo "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔"
+echo "Build HBase Tables"
+echo "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔"
+echo ""
+echo ""
+hbase shell tables.tbl 
+
+echo ""
+echo ""
+echo "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔"
+echo " Building Kudu Impala Tables"
+echo ""
+echo "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔"
+echo ""
+echo ""
+
+# Build Kudu tables
+
+impala-shell -i edge2ai-1.dim.local -d default -f kudu.sql 
+
+echo ""
+echo ""
+echo "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔"
+echo " Building Apache Hive ORC Tx Tables"
+echo ""
+echo "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔"
+echo ""
+echo ""
+
+# Build Hive Tables
+beeline -u jdbc:hive2://edge2ai-1.dim.local:10000/default -f hive.sql
+ 
                                  
                                  
                                  

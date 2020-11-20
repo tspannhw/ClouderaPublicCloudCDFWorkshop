@@ -10,6 +10,8 @@
 # Download Hbase client configs from CM
 # Download Hive client configs from CM
 
+# Load Schemas
+
 # HBase
 # 7.2.2 - Operational Database: Apache HBase, Phoenix-COD-v3
 

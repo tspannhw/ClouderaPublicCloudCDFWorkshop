@@ -12,6 +12,10 @@
 
 # Load Schemas
 
+CREATE EXTERNAL TABLE IF NOT EXISTS `pricesorc` (`item_id` BIGINT, `price` DOUBLE, `created_on` BIGINT, `updated_on` BIGINT) 
+STORED AS ORC
+LOCATION 's3a://aceawworkshopuat1/user/tspann/prices'
+
 CREATE EXTERNAL TABLE weatherkudu 
 (`location` STRING,`observation_time` STRING, `credit` STRING, `credit_url` STRING, `image` STRING, `suggested_pickup` STRING, `suggested_pickup_period` BIGINT,
 `station_id` STRING, `latitude` DOUBLE, `longitude` DOUBLE,  `observation_time_rfc822` STRING, `weather` STRING, `temperature_string` STRING,

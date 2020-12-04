@@ -59,7 +59,7 @@ CREATE TABLE `globaltwitter` (
 
 # Kudu Table
 
-CREATE TABLE IF NOT EXISTS airlinesentimentkudu (tweetid STRING, `timestamp` STRING, friends_count STRING, hashtags STRING, listed_count STRING, 
+CREATE TABLE IF NOT EXISTS twitterkudu (tweetid STRING, `timestamp` STRING, friends_count STRING, hashtags STRING, listed_count STRING, 
 annonym STRING, favourites_count STRING, airlinesentiment STRING, airlinepolarity STRING, retweet_count STRING, 
 statuses_count STRING, followers_count STRING, `location` STRING, text STRING, time STRING, airline STRING, 
 PRIMARY KEY (tweetid, `timestamp`)
@@ -68,7 +68,7 @@ PARTITION BY HASH PARTITIONS 4
 STORED AS KUDU
 TBLPROPERTIES ('kudu.num_tablet_replicas' = '1');
 
-CREATE TABLE IF NOT EXISTS airlinesentimentkudu2
+CREATE TABLE IF NOT EXISTS airlinesentimentkudu
 (tweet_id STRING, `unixtime` STRING, friends_count STRING, hashtags STRING, listed_count STRING, 
 source STRING, favourites_count STRING, 
 statuses_count STRING, followers_count STRING, `location` STRING, msg STRING, time STRING, airline STRING, 

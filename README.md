@@ -2,6 +2,9 @@
 
 Cloudera Public Cloud CDF Workshop - AWS or Azure
 
+# NiFi - Kafka Data Hubs Tutorial
+
+
 
 # See 
 https://docs.cloudera.com/cdf-datahub/7.2.2/index.html
@@ -45,7 +48,7 @@ https://github.com/tspannhw/ClouderaStreamingAnalyticsSQLWorkshop
 
 # Initial Setup
 
-* https://docs.cloudera.com/data-hub/cloud/getting-started-tutorial/topics/dh-tutorial-ssh.html
+* https://docs.cloudera.com/data-hub/cloud/access-clusters/topics/mc-accessing-cluster-via-ssh.html
 
 # HBase Connectivity
 

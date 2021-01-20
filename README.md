@@ -13,7 +13,7 @@ https://docs.cloudera.com/cdf-datahub/7.2.2/index.html
 https://github.com/tspannhw/ClouderaFlowManagementWorkshop
 
 # See also 
-https://github.com/asdaraujo/edge2ai-workshop
+https://github.com/cloudera-labs/edge2ai-workshop
 
 # See also 
 https://github.com/tspannhw/ClouderaStreamingAnalyticsSQLWorkshop

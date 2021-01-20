@@ -1,9 +1,11 @@
 # CDP Public Cloud DataFlow - Flow Management - Workshop
 
+## Labs
+
+### Lab 1
 
 
-
-# References
+### References
 
 * https://docs.cloudera.com/cdf-datahub/7.2.1/index.html
 * https://docs.cloudera.com/cdf-datahub/7.2.1/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html

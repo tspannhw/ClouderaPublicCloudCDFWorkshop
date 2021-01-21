@@ -11,23 +11,36 @@
 * Have SSH Client
 * Set CDP Workload Password
 * Set all CDP credentials and download
+* Environments/YourEnv/Clusters Manage Access
+* Environments/YourEnv/Synchronize Users/Details
 
-
-Per Developer
+# Per Developer
 
 * Create NiFi Datahub (Light Duty)
 * Create Kafka Datahub (Light Duty)
 
-Or Per 4 Developers
+# Or Per 4 Developers
 
 * Create NiFi Datahub (Heavy Duty)
 * Create Kafka Datahub (Heavy Duty)
+
+# Build Data Sources
+
+* Build HBase or Hive or Kudu or Impala
+
+* Download HBase Configuration ZIP From OpDb/Cloudera Manager/HBase/Download
+
+* Download Hive configuration ZIP from DE/Cloudera Manager/Hive/Download
 
 Security
 
 * Set Workload password and give permissions to both datahubs.
 * Add to User Group
 * Add permissions to Ranger
+
+Tables
+
+* Build Tables https://github.com/tspannhw/ClouderaPublicCloudCDFWorkshop/edit/main/script.sh
 
 # Labs
 

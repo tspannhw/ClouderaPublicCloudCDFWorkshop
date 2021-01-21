@@ -3,6 +3,16 @@
 
 # Pre-Lab Setup
 
+* Have your Amazon .pem
+* Have CDP Account login
+* Have AWS and Azure Accounts
+* Have CDP CLI, AWS CLI, Docker, Python3 installed
+* Have AWS CLI Automation Access
+* Have SSH Client
+* Set CDP Workload Password
+* Set all CDP credentials and download
+
+
 Per Developer
 
 * Create NiFi Datahub (Light Duty)

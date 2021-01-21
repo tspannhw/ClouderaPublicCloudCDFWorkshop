@@ -1,11 +1,30 @@
 # CDP Public Cloud DataFlow - Flow Management - Workshop
 
-## Labs
 
-### Lab 1
+# Pre-Lab Setup
+
+Per Developer
+
+* Create NiFi Datahub (Light Duty)
+* Create Kafka Datahub (Light Duty)
+
+Or Per 4 Developers
+
+* Create NiFi Datahub (Heavy Duty)
+* Create Kafka Datahub (Heavy Duty)
+
+Security
+
+* Set Workload password and give permissions to both datahubs.
+* Add to User Group
+* Add permissions to Ranger
+
+# Labs
+
+## Lab 1
 
 
-### References
+## References
 
 * https://docs.cloudera.com/cdf-datahub/7.2.1/index.html
 * https://docs.cloudera.com/cdf-datahub/7.2.1/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html

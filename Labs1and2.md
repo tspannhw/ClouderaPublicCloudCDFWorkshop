@@ -17,6 +17,22 @@
 
 Setup environment and get your security ready.
 
+Step 1:  Make sure there are 3 data hubs created and you have permissions to access.   These are:   Flow Management, Operational Database and Streams Messaging.
+
+Step 1:  Make sure you have Ranger Permissions
+
+https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-ranger.html
+
+Step 3:  Download HBase Configuration Files
+
+https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-connection-details.html
+
+Step 4:  SCP Copy Your hbase-site.xml and core-site.xml to your 3+ NiFi servers /tmp directories.
+
+Step 5:  SSH Login to your 3+ NiFi servers and change permissiosn on those files:   chmod 755 tmp/*-site.xml.
+
+## Reference
+
 * https://docs.cloudera.com/data-hub/cloud/access-clusters/topics/mc-accessing-cluster-via-ssh.html
 
 
@@ -32,6 +48,8 @@ Setup environment and get your security ready.
 # Lab 2:  Lab 2:  Apache NiFi →  Operation Database (Apache HBase)
 
 In this lab you will write data to an Operational Database (HBase Table)
+
+## Reference:   https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-table.html
 
 Step 1:   From the OpDB Data Hub, click Hue
 

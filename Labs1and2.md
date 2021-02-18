@@ -104,5 +104,23 @@ Step 11:  Copy the schema text from here:   https://github.com/tspannhw/Cloudera
 
 Step 12:  Name the schema:  iottest and make it Backward compatible
 
+Step 14:  Now that we have a schema we can use it for Filtering and Routing with a "Query Record Processor"
 
+Step 15:  Create a JsonTreeReader as the reader and an AvroRecordSetWriter for writer.
+
+Step 16:  Click into JsonTreeReader and set "Schema Access Strategy" to Use "Schema Name" property and create new controller service for "HortonworksSchemaRegistry".   Click Apply.   
+
+Step 17:  From Controller Services, click configure icon for HortonworksSchemaRegistry.  You will need to get the URL from the registry from the datahub.
+
+Step 18:  You can find the hostname on the Streams Messaging cluster overview page when selecting the Hardware tab.
+
+Reference:    https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-kafka-ingest/topics/cdf-datahub-fm-kafka-ingest-create-cs.html
+
+Step 19:  Example URL:   https://messaging-cluster-1-registry0.gvettica.xcu2-8y8x.dev.cldr.work:7790/api/v1.   Please note make sure you lead with https:// and end with :7790/api/v1.
+
+
+Step :  Add an attribute tohbase and enter SELECT * FROM FLOWFILE as your query.  We can change that later and add things like WHERE memory > 10
+
+
+Extra Credit:  You can change any values that are specific to your example such as Schema Registry URL, usernames, passwords and such to parameters.
 

@@ -1,5 +1,7 @@
 # Overview of Data Flow Details
 
+![Tim](https://raw.githubusercontent.com/tspannhw/tspannhw/main/headshots/mlx90640-2020-01-05-20-52-14.gif)
+
 * https://www.youtube.com/watch?v=lrV-EwD4G8w
 * https://www.youtube.com/watch?v=kn6-8f8Vrq8
 
@@ -14,10 +16,10 @@
 
 # Lab 1:  CDP Public Cloud Data Flow Overview Exploration
 
-Explore datahubs
-Explore Cloudera Manager for NiFi cluster, Kafka cluster, OpDB cluster
-Explore HBase UIs
-Explore Hue
+* Explore datahubs
+* Explore Cloudera Manager for NiFi cluster, Kafka cluster, OpDB cluster
+* Explore HBase UIs
+* Explore Hue
 
 # Lab 2:  Lab 2:  Apache NiFi →  Operation Database (Apache HBase)
 
@@ -30,4 +32,6 @@ Step 2:   Create an HBase table:   Table Name:  'iottest'   Column Family Name: 
 Step 3:  Query that table with Hue
 
 Step 4:   You can enter Cloudera Manager and explore HBase UI
+
+Step 5:  
 

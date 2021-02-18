@@ -33,5 +33,30 @@ Step 3:  Query that table with Hue
 
 Step 4:   You can enter Cloudera Manager and explore HBase UI
 
-Step 5:  
+Step 5:  Let's access some data.   We will use a synthetic data generator for ease, but we could easily do HDFS/S3, REST API or a database.
+
+Step 6:  Create the data generator.   Add a "Generate Flow File" processor to the screen.
+
+Set the schedule to 5 or 10 seconds.
+
+Set the Custom Text to:
+
+ {"id": "${UUID()}}",
+"te": "0.${random():mod(1000):plus(1)}",
+"diskusage": "${math("random")}.3 MB",
+"memory": ${random():mod(95):plus(10)},
+"cpu": ${nextInt()}.${random():mod(99):plus(1)},
+"host": "${ip()}}",
+"temperature": "${random():mod(60):plus(60)}",
+"macaddress": "test",
+"end": "${random():mod(1000):plus(1)}",
+"systemtime": "${now():format("MM/dd/yyyy HH:mm:ss", "EST")}"}
+
+
+Feel free to tweak this for your own data differences.
+
+Step 7:   Add an UpdateAttribute processor and connect it from "Generate Flow File".
+
+Step 8:   Add an attribute named "schema.name" and set it to:   iottest
+
 

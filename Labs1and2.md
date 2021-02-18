@@ -19,7 +19,9 @@ Setup environment and get your security ready.
 
 Step 1:  Make sure there are 3 data hubs created and you have permissions to access.   These are:   Flow Management, Operational Database and Streams Messaging.
 
-Step 1:  Set a workload password
+Step 1:  Set up a machine user for NiFi to use to login to Schema Registry, Kafka, HBase, ...   You can create a group, many users or one user for all these different services.
+
+Step 1:  Set a workload password for each one and your own account.
 
 Step 1:  Synchronize users
 
@@ -116,7 +118,7 @@ Step 18:  You can find the hostname on the Streams Messaging cluster overview pa
 
 Reference:    https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-kafka-ingest/topics/cdf-datahub-fm-kafka-ingest-create-cs.html
 
-Step 19:  Example URL:   https://messaging-cluster-1-registry0.gvettica.xcu2-8y8x.dev.cldr.work:7790/api/v1.   Please note make sure you lead with https:// and end with :7790/api/v1.
+Step 19:  Example URL:   https://messaging-cluster-1-registry0.gvettica.xcu2-8y8x.dev.cldr.work:7790/api/v1  Please note make sure you lead with https:// and end with :7790/api/v1.
 
 Step 20:  For SSL Context Service, choose the existing one usually named "New NiFi SSL Context Service".
 
@@ -124,7 +126,35 @@ Step 21:  Use the Service Account (or your own user name, such as "tspann") in t
 
 Step 22:  Use the Workload Password that you set for that Machine Account or your personal account in the Kerberos Password field.   Then click Apply.
 
-Step :  Add an attribute tohbase and enter SELECT * FROM FLOWFILE as your query.  We can change that later and add things like WHERE memory > 10
+Step 23:  For your AvroWriter, set "Schema Write Strategy" to "HWX Content-Encoded Schema Reference".
+
+Step 24:  Set "Schema Access Strategy" to "Use 'Schema Name' Property.
+
+Step 25:  Set "Schema Registry" to your existing Schema Registry from the drop down.
+
+Step 26:  Start your schema registry by clicking the lightning bolt and enabling.   Enable the services also for your readers and writers.
+
+Step 27:  Add an attribute tohbase and enter SELECT * FROM FLOWFILE as your query.  We can change that later and add things like WHERE memory > 10
+
+Step 28:  Add a PutHBaseRecord processor on the screen and connect it from the tohbase query from the previous processor.
+
+Step 29:  Create an AvroReader for the RecordReader.
+
+Create an HBase_2_ClientService for HBase Client Service.
+
+Set the "Table Name" to 'iottest'   
+
+Set "Row Identifier Field Name" to 'id'
+
+Set "Column Family" to 'iot_details'
+
+Set "Batch Size" to 1000 (or more if you wish)
+
+Add a RetryFlowFile processor and connect PutHBaseRecord's failure to it.
+
+For RetryFlowFile send failure and retries_exceeeded to a Funnel or a LogAttribute.   Finally for the retry, connect that to PutHBaseRecord.
+
+Note:  To see the data you have processed so far, at any point you can right click and see View Data Provenance.
 
 
 Extra Credit:  You can change any values that are specific to your example such as Schema Registry URL, usernames, passwords and such to parameters.

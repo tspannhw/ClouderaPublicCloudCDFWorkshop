@@ -1,1 +1,6 @@
 create table weather, weather_details
+exit
+
+# hbase shell
+create 'iottest', 'iot_details'
+exit

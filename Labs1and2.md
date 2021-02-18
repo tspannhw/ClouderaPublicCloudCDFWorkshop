@@ -11,6 +11,14 @@
 * https://www.datainmotion.dev/2021/02/ingest-into-cloud.html
 * https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html
 * https://www.cloudera.com/products/cdf.html
+* https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-understand.html
+
+# Lab 0
+
+Setup environment and get your security ready.
+
+* https://docs.cloudera.com/data-hub/cloud/access-clusters/topics/mc-accessing-cluster-via-ssh.html
+
 
 # Labs 1 and 2
 

@@ -150,6 +150,25 @@ Set "Column Family" to 'iot_details'
 
 Set "Batch Size" to 1000 (or more if you wish)
 
+Click into Record Reader -> that will bring you into Controller Services.
+
+Edit SchemaAwareAvroReader and set "Schema Access Strategy" to "HWX Content-Encoded Schema Reference" and Schema Registry to your existing Schema Registry then click Ok.    Start this reader with the lighting bolt.
+
+Click into HBase Client Service, set Hadoop Configuration Files to /tmp/hbase/hbase-site.xml,/tmp/hbase/core-site.xml
+
+Set your Kerberos Principal to your account name / machine user name.
+
+Set your Kerberos Password to that password for that account.   ie. Workload password.
+
+Hit Apply and the HBase service will validate.   You can now click the ligthing bolt to start it.   If things are taking too long for the lightning bolt to appear, click out of the controller and go back in.
+
+
+
+
+
+
+
+
 Add a RetryFlowFile processor and connect PutHBaseRecord's failure to it.
 
 For RetryFlowFile send failure and retries_exceeeded to a Funnel or a LogAttribute.   Finally for the retry, connect that to PutHBaseRecord.

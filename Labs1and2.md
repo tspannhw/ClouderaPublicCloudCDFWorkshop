@@ -118,9 +118,14 @@ Reference:    https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-kafka-ingest/topi
 
 Step 19:  Example URL:   https://messaging-cluster-1-registry0.gvettica.xcu2-8y8x.dev.cldr.work:7790/api/v1.   Please note make sure you lead with https:// and end with :7790/api/v1.
 
+Step 20:  For SSL Context Service, choose the existing one usually named "New NiFi SSL Context Service".
+
+Step 21:  Use the Service Account (or your own user name, such as "tspann") in the Kerberos Principal field.   This account needs permission in Ranger.
+
+Step 22:  Use the Workload Password that you set for that Machine Account or your personal account in the Kerberos Password field.   Then click Apply.
 
 Step :  Add an attribute tohbase and enter SELECT * FROM FLOWFILE as your query.  We can change that later and add things like WHERE memory > 10
 
 
 Extra Credit:  You can change any values that are specific to your example such as Schema Registry URL, usernames, passwords and such to parameters.
-
+https://www.datainmotion.dev/2019/11/exploring-apache-nifi-110-parameters.html

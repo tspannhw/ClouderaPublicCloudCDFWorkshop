@@ -13,13 +13,17 @@
 * https://www.cloudera.com/products/cdf.html
 * https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-understand.html
 
-# Lab 0
+# Lab 0 - Environment Setup By Operations Team Before Workshop
 
 Setup environment and get your security ready.
 
 Step 1:  Make sure there are 3 data hubs created and you have permissions to access.   These are:   Flow Management, Operational Database and Streams Messaging.
 
-Step 1:  Make sure you have Ranger Permissions
+Step 1:  Set a workload password
+
+Step 1:  Synchronize users
+
+Step 1:  Make sure you have Ranger Permissions, if not add Ranger permissions for NiFi, NiFi Registry, Kafka, HBase, Schema Registry.
 
 https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-ranger.html
 
@@ -36,11 +40,12 @@ Step 5:  SSH Login to your 3+ NiFi servers and change permissiosn on those files
 * https://docs.cloudera.com/data-hub/cloud/access-clusters/topics/mc-accessing-cluster-via-ssh.html
 
 
-# Labs 1 and 2
+# Labs 1 and 2 - Developers
+
 
 # Lab 1:  CDP Public Cloud Data Flow Overview Exploration
 
-* Explore datahubs
+* Explore CDP Data Hubs
 * Explore Cloudera Manager for NiFi cluster, Kafka cluster, OpDB cluster
 * Explore HBase UIs
 * Explore Hue
@@ -51,38 +56,53 @@ In this lab you will write data to an Operational Database (HBase Table)
 
 ## Reference:   https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-table.html
 
-Step 1:   From the OpDB Data Hub, click Hue
+Step 1:  From the OpDB Data Hub, click Hue
 
-Step 2:   Create an HBase table:   Table Name:  'iottest'   Column Family Name:   'iot_details'
+Step 2:  Create an HBase table:   Table Name:  'iottest'   Column Family Name:   'iot_details'
 
 Step 3:  Query that table with Hue
 
-Step 4:   You can enter Cloudera Manager and explore HBase UI
+Step 4:  You can enter Cloudera Manager and explore HBase UI
 
 Step 5:  Let's access some data.   We will use a synthetic data generator for ease, but we could easily do HDFS/S3, REST API or a database.
 
-Step 6:  Create the data generator.   Add a "Generate Flow File" processor to the screen.
+Step 6:  From the Flow Management Data Hub, Click the link for NiFi.
+
+https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html
+
+
+Step 7:  Create the data generator.   Add a "Generate Flow File" processor to the screen.
 
 Set the schedule to 5 or 10 seconds.
 
 Set the Custom Text to:
 
- {"id": "${UUID()}}",
+```
+ {"id": "${UUID()}",
 "te": "0.${random():mod(1000):plus(1)}",
 "diskusage": "${math("random")}.3 MB",
 "memory": ${random():mod(95):plus(10)},
 "cpu": ${nextInt()}.${random():mod(99):plus(1)},
-"host": "${ip()}}",
+"host": "${ip()}",
 "temperature": "${random():mod(60):plus(60)}",
 "macaddress": "test",
 "end": "${random():mod(1000):plus(1)}",
 "systemtime": "${now():format("MM/dd/yyyy HH:mm:ss", "EST")}"}
-
+```
 
 Feel free to tweak this for your own data differences.
 
-Step 7:   Add an UpdateAttribute processor and connect it from "Generate Flow File".
+Step 7:  Add an UpdateAttribute processor and connect it from "Generate Flow File".
 
-Step 8:   Add an attribute named "schema.name" and set it to:   iottest
+Step 8:  Add an attribute named "schema.name" and set it to:   iottest
+
+Step 9:  From the Streams Messaging Data Hub, Click Schema Registry
+
+Step 10:  Click the White Plug in Green Hexagon to add a new schema
+
+Step 11:  Copy the schema text from here:   https://github.com/tspannhw/ClouderaPublicCloudCDFWorkshop/blob/main/iottest.avsc
+
+Step 12:  Name the schema:  iottest and make it Backward compatible
+
 
 

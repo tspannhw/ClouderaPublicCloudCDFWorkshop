@@ -8,6 +8,8 @@ Step 2:  Set up a machine user for NiFi to use to login to Schema Registry, Kafk
 
 Step 3:  Set a workload password for each one and your own account.
 
+[Workload Password(https://github.com/tspannhw/ClouderaPublicCloudCDFWorkshop/blob/main/images/Envsetworkloadpassword.png?raw=true)
+
 Step 4:  Synchronize users
 
 Step 5:  Make sure you have Ranger Permissions, if not add Ranger permissions for NiFi, NiFi Registry, Kafka, HBase, Schema Registry.

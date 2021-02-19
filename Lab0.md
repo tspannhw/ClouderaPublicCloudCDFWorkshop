@@ -27,3 +27,6 @@ Step 8:  SSH Login to your 3+ NiFi servers and change permissiosn on those files
 ### Reference
 
 * https://docs.cloudera.com/data-hub/cloud/access-clusters/topics/mc-accessing-cluster-via-ssh.html
+
+
+![test](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/cdf-datahub-hbase-ingest-client-configs.png)

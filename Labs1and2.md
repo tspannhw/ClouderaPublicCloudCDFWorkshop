@@ -1,19 +1,23 @@
 # Overview of Data Flow Details
 
+Welcome to the Cloudera Data Platform for Public Cloud Data Flow hands-on workshop,
+I am your instructor, Timothy Spann.
+[@PaasDev](https://dev.to/tspannhw)
+
 ![Tim](https://raw.githubusercontent.com/tspannhw/tspannhw/main/headshots/mlx90640-2020-01-05-20-52-14.gif)
 
-* [https://www.youtube.com/watch?v=lrV-EwD4G8w]()
-* [https://www.youtube.com/watch?v=kn6-8f8Vrq8]()
+* [https://www.youtube.com/watch?v=lrV-EwD4G8w](https://www.youtube.com/watch?v=lrV-EwD4G8w)
+* [https://www.youtube.com/watch?v=kn6-8f8Vrq8](https://www.youtube.com/watch?v=kn6-8f8Vrq8)
 
 ## Please see slides and some articles.
 
-* [https://www.datainmotion.dev/2020/04/streaming-data-with-cloudera-data-flow.html]()
-* [https://www.datainmotion.dev/2021/02/ingest-into-cloud.html]()
-* [https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html]()
-* [https://www.cloudera.com/products/cdf.html]()
-* [https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-understand.html]()
+* https://www.datainmotion.dev/2020/04/streaming-data-with-cloudera-data-flow.html
+* https://www.datainmotion.dev/2021/02/ingest-into-cloud.html
+* https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html
+* https://www.cloudera.com/products/cdf.html
+* https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-understand.html
 
-# Lab 0 - Environment Setup By Operations Team Before Workshop
+## Lab 0 - Environment Setup By Operations Team Before Workshop
 
 Setup environment and get your security ready.
 
@@ -27,7 +31,7 @@ Step 4:  Synchronize users
 
 Step 5:  Make sure you have Ranger Permissions, if not add Ranger permissions for NiFi, NiFi Registry, Kafka, HBase, Schema Registry.
 
-https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-ranger.html
+[https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-ranger.html](https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-ranger.html)
 
 Step 6:  Download HBase Configuration Files
 
@@ -37,26 +41,28 @@ Step 7:  SCP Copy Your hbase-site.xml and core-site.xml to your 3+ NiFi servers 
 
 Step 8:  SSH Login to your 3+ NiFi servers and change permissiosn on those files:   chmod 755 tmp/*-site.xml.
 
-## Reference
+### Reference
 
 * https://docs.cloudera.com/data-hub/cloud/access-clusters/topics/mc-accessing-cluster-via-ssh.html
 
 
-# Labs 1 and 2 - Developers
+## Labs 1 and 2 - For Developers
 
 
-# Lab 1:  CDP Public Cloud Data Flow Overview Exploration
+## Lab 1:  CDP Public Cloud Data Flow Overview Exploration
 
 * Explore CDP Data Hubs
 * Explore Cloudera Manager for NiFi cluster, Kafka cluster, OpDB cluster
 * Explore HBase UIs
 * Explore Hue
 
-# Lab 2:  Lab 2:  Apache NiFi →  Operation Database (Apache HBase)
+## Lab 2:  Apache NiFi → Operational Database (Apache HBase)
 
-In this lab you will write data to an Operational Database (HBase Table)
+In this lab you will write data to an Operational Database (HBase Table).
 
-## Reference:   https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-table.html
+### Reference  
+
+https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-table.html
 
 Step 1:  From the OpDB Data Hub, click Hue
 
@@ -70,8 +76,7 @@ Step 5:  Let's access some data.   We will use a synthetic data generator for ea
 
 Step 6:  From the Flow Management Data Hub, Click the link for NiFi.
 
-https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html
-
+[https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html](https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html)
 
 Step 7:  Create the data generator.   Add a "Generate Flow File" processor to the screen.
 
@@ -80,7 +85,8 @@ Set the schedule to 5 or 10 seconds.
 Set the Custom Text to:
 
 ```
- {"id": "${UUID()}",
+ {
+ "id": "${UUID()}",
 "te": "0.${random():mod(1000):plus(1)}",
 "diskusage": "${math("random")}.3 MB",
 "memory": ${random():mod(95):plus(10)},
@@ -89,10 +95,11 @@ Set the Custom Text to:
 "temperature": "${random():mod(60):plus(60)}",
 "macaddress": "test",
 "end": "${random():mod(1000):plus(1)}",
-"systemtime": "${now():format("MM/dd/yyyy HH:mm:ss", "EST")}"}
+"systemtime": "${now():format("MM/dd/yyyy HH:mm:ss", "EST")}"
+}
 ```
 
-Feel free to tweak this for your own data differences.
+Feel free to tweak this for your change the data, but if you add or remove fields you will need to update the schema linked below.
 
 Step 7:  Add an UpdateAttribute processor and connect it from "Generate Flow File".
 
@@ -118,7 +125,7 @@ Step 18:  You can find the hostname on the Streams Messaging cluster overview pa
 
 Reference:    https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-kafka-ingest/topics/cdf-datahub-fm-kafka-ingest-create-cs.html
 
-Step 19:  Example URL:   https://messaging-cluster-1-registry0.gvettica.xcu2-8y8x.dev.cldr.work:7790/api/v1  Please note make sure you lead with https:// and end with :7790/api/v1.
+Step 19:  **Example URL:**   https://messaging-cluster-1-registry0.gvettica.xcu2-8y8x.dev.cldr.work:7790/api/v1  Please note make sure you lead with https:// and end with :7790/api/v1.
 
 Step 20:  For SSL Context Service, choose the existing one usually named "New NiFi SSL Context Service".
 
@@ -154,7 +161,7 @@ Step 35:  Click into Record Reader -> that will bring you into Controller Servic
 
 Step 36:  Edit SchemaAwareAvroReader and set "Schema Access Strategy" to "HWX Content-Encoded Schema Reference" and Schema Registry to your existing Schema Registry then click Ok.    Start this reader with the lighting bolt.
 
-Step 37:  Click into HBase Client Service, set Hadoop Configuration Files to /tmp/hbase/hbase-site.xml,/tmp/hbase/core-site.xml
+Step 37:  Click into HBase Client Service, set Hadoop Configuration Files to **/tmp/hbase/hbase-site.xml,/tmp/hbase/core-site.xml**
 
 Step 38:  Set your Kerberos Principal to your account name / machine user name.
 
@@ -170,4 +177,5 @@ Note:  To see the data you have processed so far, at any point you can right cli
 
 
 Extra Credit:  You can change any values that are specific to your example such as Schema Registry URL, usernames, passwords and such to parameters.
+
 https://www.datainmotion.dev/2019/11/exploring-apache-nifi-110-parameters.html

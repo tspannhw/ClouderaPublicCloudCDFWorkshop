@@ -151,12 +151,6 @@ Step 26:  Start your schema registry by clicking the lightning bolt and enabling
 
 Step 27:  Add an attribute tohbase and enter SELECT * FROM FLOWFILE as your query.  We can change that later and add things like WHERE memory > 10
 
-
-* HBase / Operational Database
-
-You must have a table created named 'iottest' with a column family called 'iot_details'.   You can do this from Hue or the command line.
-
-
 Step 28:  Add a PutHBaseRecord processor on the screen and connect it from the tohbase query from the previous processor.
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/putHbaserecord.png)

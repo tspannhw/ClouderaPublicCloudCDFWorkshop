@@ -56,6 +56,31 @@ Step 4:  You can enter Cloudera Manager and explore HBase UI
 Step 5:  Let's access some data.   We will use a synthetic data generator for ease, but we could easily do HDFS/S3, REST API or a database.
 
 
+Your administrator has done these steps for you, you can read about them in detail here (https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-nifi-hbase-ingest.html):
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/Envsetworkloadpassword.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/synchronizeusers.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/synchronizeuserspreclick.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/synccomplete.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/setworkloadpassword.png)
+
+
+### HBase Connection Information Download (and then SCP to NiFi nodes)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hbasedownloadclientconfig.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hbasesettings.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/opdbdownload.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/huehbasebrowser.png)
+
+
+
 ### Flow Management
 
 Step 6:  From the Flow Management Data Hub, Click the link for NiFi.
@@ -203,6 +228,9 @@ Step 42:  For RetryFlowFile send failure and retries_exceeeded to a Funnel or a 
 
 Note:  To see the data you have processed so far, at any point you can right click and see View Data Provenance.
 
+### You can see your flow running in Apache Atlas linked from the data lake
+
+![parm](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/atlas.png)
 
 Extra Credit:  You can change any values that are specific to your example such as Schema Registry URL, usernames, passwords and such to parameters.
 

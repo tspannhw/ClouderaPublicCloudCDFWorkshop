@@ -1,23 +1,26 @@
 # Overview of Data Flow Details
 
 Welcome to the Cloudera Data Platform for Public Cloud Data Flow hands-on workshop,
-I am your instructor, Timothy Spann.
-[@PaasDev](https://dev.to/tspannhw)
+I am your instructor, Timothy Spann.  [@PaasDev](https://dev.to/tspannhw)
+
 
 ![Tim](https://raw.githubusercontent.com/tspannhw/tspannhw/main/headshots/mlx90640-2020-01-05-20-52-14.gif)
 
 * [https://www.youtube.com/watch?v=lrV-EwD4G8w](https://www.youtube.com/watch?v=lrV-EwD4G8w)
 * [https://www.youtube.com/watch?v=kn6-8f8Vrq8](https://www.youtube.com/watch?v=kn6-8f8Vrq8)
 
+
 ## Please see slides and some articles.
 
-* https://www.datainmotion.dev/2020/04/streaming-data-with-cloudera-data-flow.html
-* https://www.datainmotion.dev/2021/02/ingest-into-cloud.html
-* https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html
-* https://www.cloudera.com/products/cdf.html
-* https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-overview.html
+* [https://www.datainmotion.dev/2020/04/streaming-data-with-cloudera-data-flow.html)](https://www.datainmotion.dev/2020/04/streaming-data-with-cloudera-data-flow.html)
+* [https://www.datainmotion.dev/2021/02/ingest-into-cloud.html](https://www.datainmotion.dev/2021/02/ingest-into-cloud.html)
+* [https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html](https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html)
+* [https://www.cloudera.com/products/cdf.html](https://www.cloudera.com/products/cdf.html)
+* [https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-overview.html](https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-overview.html)
+
 
 ## Pre-Requisite
+
 
 ### Environment Setup Details
 
@@ -31,6 +34,7 @@ I am your instructor, Timothy Spann.
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/synchronizeusers.png)
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/synccomplete.png)
+
 
 ### Create an HDFS directory in Hue for use with permissions (or create in AWS)
 
@@ -54,7 +58,7 @@ To enable your CDP user to utilize the central authentication features CDP provi
 
 The option to add / modify the mappings is available from the Management Console in your CDP environment.
 
-* https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-create-idbroker-mapping.html
+[https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-create-idbroker-mapping.html](https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-create-idbroker-mapping.html)
 
 ![](https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/images/idbroker-mapping-1.png)
 
@@ -62,13 +66,20 @@ The option to add / modify the mappings is available from the Management Console
 
 ![](https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/images/idbroker-mapping-3.png)
 
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/idbrokermapping.png)
+
+
 ## Labs 1 and 2 - For Developers
+
+In our first lab you are free to explore your environments and test permissions.
 
 
 ## Lab 1:  CDP Public Cloud Data Flow Overview Exploration
 
 * Explore CDP Data Hubs
+
 * Explore Cloudera Manager for NiFi cluster, Kafka cluster
+
 * Explore Hue
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/datahubs.png)
@@ -88,6 +99,8 @@ In this lab you will write data to an S3 bucket managed by HDFS under Cloudera D
 Step :  From the Flow Management Data Hub, Click the link for NiFi.
 
 [https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html](https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html)
+
+Step : You will begin to add data.
 
 Step :  Create the data generator.   Add a "Generate Flow File" processor to the screen.
 
@@ -114,28 +127,6 @@ Set the Custom Text to:
 
 Feel free to tweak this for your change the data, but if you add or remove fields you will need to update the schema linked below.
 
-Step :  Add an UpdateAttribute processor and connect it from "Generate Flow File".
-
-Step :  Add an attribute named "schema.name" and set it to:   iottest
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/edit.png)
-
-
-### Schema Registry
-
-Step :  From the Streams Messaging Data Hub, Click Schema Registry
-
-Step :  Click the White Plug in Green Hexagon to add a new schema
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/addschemaicon.png)
-
-Step :  Copy the schema text from here:   https://github.com/tspannhw/ClouderaPublicCloudCDFWorkshop/blob/main/iottest.avsc
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/addnewschema.png)
-
-Step :  Name the schema:  iottest and make it Backward compatible
-
-![sr](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/schemaloaded.png)
 
 
 ### Flow Management
@@ -144,72 +135,69 @@ Step :  Now that we have a schema we can use it for Filtering and Routing with a
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/configureQueryProcessor.png)
 
-Step :  Create a JsonTreeReader as the reader and an AvroRecordSetWriter for writer.
-
-Step :  Click into JsonTreeReader and set "Schema Access Strategy" to Use "Schema Name" property and create new controller service for "HortonworksSchemaRegistry".   Click Apply.   
-
-Step :  From Controller Services, click configure icon for HortonworksSchemaRegistry.  You will need to get the URL from the registry from the datahub.
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/addSchemaRegistry.png)
-
-Step :  You can find the hostname on the Streams Messaging cluster overview page when selecting the Hardware tab.
-
-Reference:    https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-kafka-ingest/topics/cdf-datahub-fm-kafka-ingest-create-cs.html
-
-Step :  **Example URL:**   https://messaging-cluster-1-tim.is.cool.dev.cldr.work:7790/api/v1  Please note make sure you lead with https:// and end with :7790/api/v1.
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/setschemaregistry.png)
-
-Step :  For SSL Context Service, choose the existing one usually named "New NiFi SSL Context Service".
-
-Step :  Use the Service Account (or your own user name, such as "tspann") in the Kerberos Principal field.   This account needs permission in Ranger.
-
-Step :  Use the Workload Password that you set for that Machine Account or your personal account in the Kerberos Password field.   Then click Apply.
-
-Step :  For your AvroWriter, set "Schema Write Strategy" to "HWX Content-Encoded Schema Reference".
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/schemaAwareAvroWriter.png)
-
-Step :  Set "Schema Access Strategy" to "Use 'Schema Name' Property.
-
-Step :  Set "Schema Registry" to your existing Schema Registry from the drop down.
-
-Step :  Start your schema registry by clicking the lightning bolt and enabling.   Enable the services also for your readers and writers.
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/enable.png)
-
-Step :  Add an attribute tohbase and enter SELECT * FROM FLOWFILE as your query.  We can change that later and add things like WHERE memory > 10
-
-Step :  Add a PutHBaseRecord processor on the screen and connect it from the tohbase query from the previous processor.
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/putHbaserecord.png)
-
-Step :  Create an AvroReader for the RecordReader.
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/addAvroReader.png)
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/schemaawareavroreader.png)
+Step :  Create a JsonTreeReader as the reader and an JsonRecordSetWriter for writer.
 
 
+
+Step :  Click into JsonTreeReader and leave defaults.  
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/inferjsontreereader.png)
+
+
+Step :  Add an attribute tohdfs and enter SELECT * FROM FLOWFILE as your query.  We can change that later and add things like WHERE memory > 10
+
+
+Step :  Create an JSONTreeReader for the RecordReader.
+
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/inferjsontreereader.png)
+
+Step : Add a MergeRecord processor
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/mergerecord.png)
+
+Step :  Create a JSONSetWRiter
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/jsonsetrecordwriter1.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/jsonrecordsetwriter2.png)
+
+
+Step :  Add a PutHDFS processor and set the following parameters.  Your admin will give which Hadoop configuration file directories.  It may be /etc/hadoop/conf/hdfs-site.xml,/etc/hadoop/conf/core-site.xml
 
 Step :  Set your Kerberos Principal to your account name / machine user name.
 
 Step :  Set your Kerberos Password to that password for that account.   ie. Workload password.
 
 
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/putHDFSProperties.png)
 
-Step :  Add a RetryFlowFile processor and connect PutHBaseRecord's failure to it.
+
+Step :  Add a RetryFlowFile processor and connect PutHDFS failure to it.
 
 Step :  For RetryFlowFile send failure and retries_exceeeded to a Funnel or a LogAttribute.   Finally for the retry, connect that to PutHBaseRecord.
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/logattribute.png)
 
 
+
+Step : Check the output
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/resultsHDFSSave.png)
+
+You can see the raw JSON files in Hue under HDFS/S3.
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/hueResultsHDFS.png)
+
+You can query an external table on your JSON data.
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/hiveonjsoninhue.png)
+
+
 ## Final Flow
 
-![Flow](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/finalFlow1.png)
 
-![Flow](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/FinalFlow2.png)
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/flow.png)
 
 
 ## Wrap-Up

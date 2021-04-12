@@ -17,7 +17,7 @@ I am your instructor, Timothy Spann.  [@PaasDev](https://dev.to/tspannhw)
 * [https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html](https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html)
 * [https://www.cloudera.com/products/cdf.html](https://www.cloudera.com/products/cdf.html)
 * [https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-overview.html](https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-overview.html)
-
+* https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-hive-ingest/topics/cdf-datahub-hive-ingest-data-target.html
 
 ## Pre-Requisite
 

@@ -1,3 +1,26 @@
+
+
+CREATE EXTERNAL TABLE IF NOT EXISTS `iottest` 
+(`id` STRING, `systemtime` STRING, `diskusage` STRING, `memory` INT, 
+ `macaddress` STRING, `host` STRING, `end` STRING, `te` STRING, `cpu` INT, `temperature` STRING) 
+ STORED AS ORC
+LOCATION '/tmp/iottest5';
+
+
+CREATE EXTERNAL TABLE IF NOT EXISTS `iottestjson` 
+(`id` STRING, `systemtime` STRING, `diskusage` STRING, `memory` INT, 
+ `macaddress` STRING, `host` STRING, `end` STRING, `te` STRING, `cpu` INT, `temperature` STRING) 
+ STORED AS ORC
+LOCATION '/tmp/iot5';
+
+CREATE TABLE IF NOT EXISTS `iottesthv` 
+(`id` STRING, `systemtime` STRING, `diskusage` STRING, `memory` INT, 
+ `macaddress` STRING, `host` STRING, `end` STRING, `te` STRING, `cpu` INT, `temperature` STRING);
+
+
+
+
+
 CREATE TABLE `weatherhive` (
 `location` STRING,`observation_time` STRING, `credit` STRING, `credit_url` STRING, `image` STRING, `suggested_pickup` STRING, `suggested_pickup_period` BIGINT,
 `station_id` STRING, `latitude` DOUBLE, `longitude` DOUBLE,  `observation_time_rfc822` STRING, `weather` STRING, `temperature_string` STRING,

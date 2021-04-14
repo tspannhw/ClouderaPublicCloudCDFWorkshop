@@ -43,7 +43,7 @@ I am your instructor, Timothy Spann.  [@PaasDev](https://dev.to/tspannhw)
 
 * if it is not under CDP HDFS managed, you will need some more details and we will use PutS3.
 
-https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-target-processor.html
+https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-target-processor.html
 
 If you want to use the PutS3Object processor to store the data in S3, you have to configure your S3 connection in a secure way:
 
@@ -98,7 +98,7 @@ In this lab you will write data to an S3 bucket managed by HDFS under Cloudera D
 
 Step :  From the Flow Management Data Hub, Click the link for NiFi.
 
-[https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html](https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html)
+[https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-target-processor.html](https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-target-processor.html)
 
 Step : You will begin to add data.
 

@@ -1,4 +1,8 @@
 
+CREATE EXTERNAL TABLE IF NOT EXISTS `iottest` 
+(`id` STRING, `systemtime` STRING, `diskusage` STRING, `memory` INT, `macaddress` STRING, `host` STRING, 
+`end` STRING, `te` STRING, `cpu` INT, `temperature` STRING) STORED AS ORC
+LOCATION '/user/tspann/iot'
 
 
 CREATE EXTERNAL TABLE IF NOT EXISTS `iottest` 

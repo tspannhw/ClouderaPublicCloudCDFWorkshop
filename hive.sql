@@ -1,3 +1,9 @@
+# typical CDP Public Cloud Data Engineering Data hub hive 3
+
+CREATE EXTERNAL TABLE IF NOT EXISTS `iottest` (`id` STRING, `te` STRING, `diskusage` STRING, `memory` BIGINT, `cpu` DOUBLE, `host` STRING, `temperature` STRING, `macaddress` STRING, `end` STRING, `systemtime` STRING) 
+STORED AS ORC
+LOCATION 's3a://se-uat2/warehouse/tablespace/external/hive/default/iottest2'
+
 
 CREATE EXTERNAL TABLE IF NOT EXISTS `iottest` 
 (`id` STRING, `systemtime` STRING, `diskusage` STRING, `memory` INT, `macaddress` STRING, `host` STRING, 

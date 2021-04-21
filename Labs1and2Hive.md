@@ -122,10 +122,6 @@ Step :  Create an Avro for the RecordReader.
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/NEWschemaawareavroreader.png)
 
 
-Step : Add a MergeRecord processor
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/mergerecord.png)
-
 Step :  Create a JSONSetWRiter
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/jsonsetrecordwriter1.png)
@@ -173,6 +169,7 @@ You can query the final table.
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/dasqueryhive3.png)
 
 
+## Another Option to Write to Hive
 ## PutORC For External Tables
 
 Step : Merge Record

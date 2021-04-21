@@ -103,22 +103,24 @@ Step :  Now that we have a schema we can use it for Filtering and Routing with a
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/configureQueryProcessor.png)
 
-Step :  Create a JsonTreeReader as the reader and an JsonRecordSetWriter for writer.
+Step :  Create a JsonTreeReader as the reader and an AvroWriter for writer.
 
-
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/NEWschemaawareavrowriter.png)
 
 Step :  Click into JsonTreeReader and leave defaults.  
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/inferjsontreereader.png)
 
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/inferjsontreereader.png)
+
 
 Step :  Add an attribute tohdfs and enter SELECT * FROM FLOWFILE as your query.  We can change that later and add things like WHERE memory > 10
 
 
-Step :  Create an JSONTreeReader for the RecordReader.
+Step :  Create an Avro for the RecordReader.
 
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/NEWschemaawareavroreader.png)
 
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/inferjsontreereader.png)
 
 Step : Add a MergeRecord processor
 

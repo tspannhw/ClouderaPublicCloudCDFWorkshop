@@ -13,9 +13,9 @@ I am your instructor, Timothy Spann.
 
 * https://www.datainmotion.dev/2020/04/streaming-data-with-cloudera-data-flow.html
 * https://www.datainmotion.dev/2021/02/ingest-into-cloud.html
-* https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html
+* https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html
 * https://www.cloudera.com/products/cdf.html
-* https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-understand.html
+* https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-understand.html
 
 ## Labs 1 and 2 - For Developers
 
@@ -85,7 +85,7 @@ Your administrator has done these steps for you, you can read about them in deta
 
 Step 6:  From the Flow Management Data Hub, Click the link for NiFi.
 
-[https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html](https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html)
+[https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html](https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html)
 
 Step 7:  Create the data generator.   Add a "Generate Flow File" processor to the screen.
 

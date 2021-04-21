@@ -24,12 +24,14 @@ CREATE EXTERNAL TABLE `iottestjson`
    ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
 LOCATION '/tmp/iot5';
 
-CREATE TABLE IF NOT EXISTS `iottesthv` 
+# Hive 3
+CREATE TABLE `iottesthv` 
 (`id` STRING, `systemtime` STRING, `diskusage` STRING, `memory` INT, 
- `macaddress` STRING, `host` STRING, `end` STRING, `te` STRING, `cpu` INT, `temperature` STRING)
-TBLPROPERTIES
-('transactional'='true', 'transactional_properties'='insert_only')
-
+ `macaddress` STRING, `host` STRING, `end` STRING, `te` STRING, `cpu` INT, `temperature` STRING);
+ 
+ # { "transactional": "true", "bucketing_version": "2", "numFilesErasureCoded": "0", "transient_lastDdlTime": "1619035149", "transactional_properties": "default" }
+ 
+ 
 
 CREATE TABLE `weatherhive` (
 `location` STRING,`observation_time` STRING, `credit` STRING, `credit_url` STRING, `image` STRING, `suggested_pickup` STRING, `suggested_pickup_period` BIGINT,

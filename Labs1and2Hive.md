@@ -160,18 +160,29 @@ Step :  For RetryFlowFile send failure and retries_exceeeded to a Funnel or a Lo
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/logattribute.png)
 
 
-
 Step : Check the output
 
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/resultsHDFSSave.png)
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/hive3provenanceevent.png)
 
-You can see the raw JSON files in Hue under HDFS/S3.
+You can query the final table.
 
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/hueResultsHDFS.png)
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/HUEHive3Details.png)
 
-You can query an external table on your JSON data.
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/dasqueryhive3.png)
 
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/hiveonjsoninhue.png)
+
+## PutORC For External Tables
+
+Step : Merge Record
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/0000mergerecord.png)
+
+Step:  Put ORC
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/0001putorc.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/0002putorc.png)
+
 
 
 ## Final Flow
@@ -182,6 +193,8 @@ You can query an external table on your JSON data.
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/puthive3streamingflow.png)
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/mainflowhive.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/ALLFLOW.png)
 
 
 ## Wrap-Up

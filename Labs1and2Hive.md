@@ -14,9 +14,9 @@ I am your instructor, Timothy Spann.  [@PaasDev](https://dev.to/tspannhw)
 
 * [https://www.datainmotion.dev/2020/04/streaming-data-with-cloudera-data-flow.html)](https://www.datainmotion.dev/2020/04/streaming-data-with-cloudera-data-flow.html)
 * [https://www.datainmotion.dev/2021/02/ingest-into-cloud.html](https://www.datainmotion.dev/2021/02/ingest-into-cloud.html)
-* [https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html](https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html)
+* [https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html](https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html)
 * [https://www.cloudera.com/products/cdf.html](https://www.cloudera.com/products/cdf.html)
-* [https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-overview.html](https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-overview.html)
+* [https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-overview.html](https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-overview.html)
 * https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-hive-ingest/topics/cdf-datahub-hive-ingest-data-target.html
 
 ## Pre-Requisite
@@ -35,38 +35,6 @@ I am your instructor, Timothy Spann.  [@PaasDev](https://dev.to/tspannhw)
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/synccomplete.png)
 
-
-### Create an HDFS directory in Hue for use with permissions (or create in AWS)
-
-* Perhaps /tmp/mydir
-* (or) a hive external directory
-
-* if it is not under CDP HDFS managed, you will need some more details and we will use PutS3.
-
-https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-target-processor.html
-
-If you want to use the PutS3Object processor to store the data in S3, you have to configure your S3 connection in a secure way:
-
-You add the AWS access key or secret access key as properties of the processor
-You configure these access keys in a credentials file and add that as a property of the processor
-You use a AWS Credentials provider service and configure it with the required information for authenticating against AWS.
-
-
-### Setup IDBroker mapping for S3
-
-To enable your CDP user to utilize the central authentication features CDP provides and to exchange credentials for AWS access tokens, you have to map your CDP user to the correct IAM role.
-
-The option to add / modify the mappings is available from the Management Console in your CDP environment.
-
-[https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-create-idbroker-mapping.html](https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/topics/cdf-datahub-fm-s3-ingest-create-idbroker-mapping.html)
-
-![](https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/images/idbroker-mapping-1.png)
-
-![](https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/images/idbroker-mapping-2.png)
-
-![](https://docs.cloudera.com/cdf-datahub/7.2.2/nifi-aws-ingest/images/idbroker-mapping-3.png)
-
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/idbrokermapping.png)
 
 
 ## Labs 1 and 2 - For Developers
@@ -87,24 +55,24 @@ In our first lab you are free to explore your environments and test permissions.
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/datalake.png)
 
 
-## Lab 2:  Apache NiFi → HDFS (Managed AWS S3)
+## Lab 2:  Apache NiFi → Apache Hive (Data Engineering Hub)
 
-In this lab you will write data to an S3 bucket managed by HDFS under Cloudera Data Platform.
+In this lab you will write data to an Apache Hive 3 table in Cloudera Data Platform.
 
-
+[Hive Ingest Example](https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-hive-ingest/topics/cdf-datahub-nifi-hive-ingest.html)
 
 ### Flow Management
 
 
-Step :  From the Flow Management Data Hub, Click the link for NiFi.
+Step 1:  From the Flow Management Data Hub, Click the link for NiFi.
 
-[https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html](https://docs.cloudera.com/cdf-datahub/7.2.7/nifi-hbase-ingest/topics/cdf-datahub-hbase-ingest-build.html)
+Step 2: You will begin to add data.
 
-Step : You will begin to add data.
+Step 3:  Create the data generator.   Add a "Generate Flow File" processor to the screen.
 
-Step :  Create the data generator.   Add a "Generate Flow File" processor to the screen.
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/001generateData.png)
 
-Set the schedule to 5 or 10 seconds.
+Set the Run Schedule (see Scheduling tab) any number between 3 and 60 seconds.
 
 Set the Custom Text to:
 
@@ -162,15 +130,27 @@ Step :  Create a JSONSetWRiter
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/jsonrecordsetwriter2.png)
 
+[](https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-hive-ingest/topics/cdf-datahub-hive-ingest-connection-detail.html)
 
-Step :  Add a PutHDFS processor and set the following parameters.  Your admin will give which Hadoop configuration file directories.  It may be /etc/hadoop/conf/hdfs-site.xml,/etc/hadoop/conf/core-site.xml
+[](https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-hive-ingest/topics/cdf-datahub-hive-ingest-build.html)
+
+Step :  Add a PutHive3Streaming processor and set the following parameters.  Your admin will give which Hive configuration resources.  It may be /tmp/hive/hdfs-site.xml, /tmp/hive/hive-site.xml, /tmp/hive/core-site.xml
+
+[](https://docs.cloudera.com/cdf-datahub/7.2.8/nifi-hive-ingest/topics/cdf-datahub-hive-ingest-data-target.html)
+
 
 Step :  Set your Kerberos Principal to your account name / machine user name.
 
 Step :  Set your Kerberos Password to that password for that account.   ie. Workload password.
 
+Step :  Set Hive Metastore URI from main Hive server
 
-![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/putHDFSProperties.png)
+Step : Set database, like default
+
+Step : Set table name, like iottesthv
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/puthive3streaming.png)
+
 
 
 Step :  Add a RetryFlowFile processor and connect PutHDFS failure to it.
@@ -198,6 +178,10 @@ You can query an external table on your JSON data.
 
 
 ![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hdfs/flow.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/puthive3streamingflow.png)
+
+![](https://raw.githubusercontent.com/tspannhw/ClouderaPublicCloudCDFWorkshop/main/images/hive/mainflowhive.png)
 
 
 ## Wrap-Up
